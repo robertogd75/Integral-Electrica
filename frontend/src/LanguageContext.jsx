@@ -11,8 +11,8 @@ const translations = {
     },
     hero: {
       badge: 'Marbella · Costa del Sol',
-      title1: 'Tu instalación eléctrica,',
-      title2: 'en las mejores manos.',
+      title1: 'Tu electricista,',
+      title2: 'Integral Eléctrica.',
       sub: 'Electricistas certificados en Marbella. Instalaciones, boletines y mucho más.',
       subHighlight: ' Rapidez, seguridad y garantía.',
       cta1: 'Solicitar presupuesto',
@@ -157,8 +157,8 @@ const translations = {
     },
     hero: {
       badge: 'Marbella · Costa del Sol',
-      title1: 'Your electrical installation,',
-      title2: 'in the best hands.',
+      title1: 'Your electrician,',
+      title2: 'Integral Eléctrica.',
       sub: 'Certified electricians in Marbella. Installations, certificates and much more.',
       subHighlight: ' Speed, safety and guarantee.',
       cta1: 'Request a quote',
