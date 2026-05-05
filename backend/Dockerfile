@@ -6,7 +6,9 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     libssl-dev \
+    libzip-dev \
     --no-install-recommends \
+    && docker-php-ext-install zip \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalar Composer
@@ -15,9 +17,10 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Directorio de trabajo
 WORKDIR /var/www/html
 
-# Copiar composer.json primero para cache de capas
-COPY composer.json ./
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Copiar composer.json y composer.lock primero para cache de capas
+COPY composer.json composer.lock ./
+RUN COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1 \
+    composer install --no-dev --optimize-autoloader --no-interaction --no-scripts --prefer-dist
 
 # Copiar el resto del código
 COPY . .
