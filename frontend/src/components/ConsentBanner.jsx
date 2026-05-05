@@ -14,7 +14,12 @@ export default function CookiesBanner() {
   }, []);
 
   const accept = () => {
-    localStorage.setItem('cookie-consent', 'true');
+    localStorage.setItem('cookie-consent', 'accepted');
+    setVisible(false);
+  }
+
+  const reject = () => {
+    localStorage.setItem('cookie-consent', 'rejected');
     setVisible(false);
   }
 
@@ -31,10 +36,16 @@ export default function CookiesBanner() {
             {t.cookies.msg}
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-center gap-2">
+          <button
+            onClick={reject}
+            className="py-2.5 px-5 text-sm font-medium text-slate-500 border border-slate-300 rounded-xl hover:bg-slate-100 transition-colors whitespace-nowrap w-full sm:w-auto"
+          >
+            {t.cookies.reject}
+          </button>
           <button 
             onClick={accept}
-            className="btn-primary py-2.5 px-6 text-sm shadow-electric whitespace-nowrap"
+            className="btn-primary py-2.5 px-6 text-sm shadow-electric whitespace-nowrap w-full sm:w-auto"
           >
             {t.cookies.accept}
           </button>

@@ -139,8 +139,9 @@ const translations = {
       rights: 'Todos los derechos reservados.',
     },
     cookies: {
-      msg: 'Utilizamos cookies para mejorar tu experiencia.',
+      msg: 'Utilizamos cookies técnicas para el funcionamiento de la web. Puedes aceptar o rechazar las cookies no esenciales.',
       accept: 'Aceptar',
+      reject: 'Rechazar',
       settings: 'Configurar',
     }
   },
@@ -282,8 +283,9 @@ const translations = {
       rights: 'All rights reserved.',
     },
     cookies: {
-      msg: 'We use cookies to improve your experience.',
+      msg: 'We use technical cookies for website functionality. You can accept or reject non-essential cookies.',
       accept: 'Accept',
+      reject: 'Reject',
       settings: 'Settings',
     }
   },
