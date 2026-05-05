@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section id="nosotros" className="py-32 bg-white">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
 
           {/* Left: text */}
           <div>
@@ -66,7 +66,7 @@ export default function About() {
           </div>
 
           {/* Right: stats */}
-          <div className="grid grid-cols-1 gap-5">
+          <div className="grid grid-cols-1 gap-5 h-full">
             {t.about.stats.map((stat, i) => (
               <motion.div
                 key={i}
@@ -74,7 +74,7 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className={`rounded-3xl p-10 border ${i === 0 ? 'bg-electric-600 border-electric-700 text-white' : 'bg-slate-50 border-slate-100'}`}
+                className={`rounded-3xl p-10 border flex flex-col justify-center ${i === 0 ? 'bg-electric-600 border-electric-700 text-white' : 'bg-slate-50 border-slate-100'}`}
               >
                 <div className={`text-5xl font-black mb-2 ${i === 0 ? 'text-white' : 'text-slate-900'}`}>
                   {stat.value}{stat.suffix}

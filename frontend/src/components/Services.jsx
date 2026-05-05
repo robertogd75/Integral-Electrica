@@ -8,10 +8,10 @@ export default function Services() {
   const iconMap = { Zap, FileCheck, Home, Wrench };
 
   const services = [
-    { id: 'instalaciones', icon: 'Zap',       color: 'text-amber-600',   bg: 'bg-amber-50'   },
-    { id: 'boletines',     icon: 'FileCheck', color: 'text-blue-600',    bg: 'bg-blue-50'    },
-    { id: 'domotica',      icon: 'Home',      color: 'text-purple-600',  bg: 'bg-purple-50'  },
-    { id: 'mantenimiento', icon: 'Wrench',    color: 'text-emerald-600', bg: 'bg-emerald-50' },
+    { id: 'instalaciones', icon: 'Zap',       color: 'text-amber-500',   bg: 'bg-amber-50',   border: 'border-t-amber-400',   img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop' },
+    { id: 'boletines',     icon: 'FileCheck', color: 'text-blue-500',    bg: 'bg-blue-50',    border: 'border-t-blue-400',    img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=700&q=80&auto=format&fit=crop' },
+    { id: 'domotica',      icon: 'Home',      color: 'text-purple-500',  bg: 'bg-purple-50',  border: 'border-t-purple-400',  img: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=700&q=80&auto=format&fit=crop' },
+    { id: 'mantenimiento', icon: 'Wrench',    color: 'text-emerald-500', bg: 'bg-emerald-50', border: 'border-t-emerald-400', img: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=700&q=80&auto=format&fit=crop' },
   ]
 
   return (
@@ -60,14 +60,25 @@ export default function Services() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
-                className="bg-white p-10 rounded-3xl border border-slate-100 hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-300"
+                whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.08, type: 'tween' } }}
+                transition={{ delay: idx * 0.08, duration: 0.08, type: 'tween' }}
+                className={`bg-white rounded-3xl border border-slate-100 border-t-4 ${svc.border} shadow-sm hover:shadow-2xl hover:shadow-slate-200/70 transition-shadow duration-75 overflow-hidden flex flex-col`}
               >
-                <div className={`w-12 h-12 rounded-2xl ${svc.bg} ${svc.color} flex items-center justify-center mb-6`}>
-                  <Icon size={22} />
+                <div className="w-full h-40 md:h-56 overflow-hidden">
+                  <img
+                    src={svc.img}
+                    alt={content.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-3">{content.title}</h3>
-                <p className="text-slate-500 leading-relaxed text-sm">{content.desc}</p>
+                <div className="p-5 md:p-7 flex flex-col items-center text-center flex-1">
+                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl ${svc.bg} ${svc.color} flex items-center justify-center mb-4 shadow-sm`}>
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="text-base md:text-lg font-bold text-slate-900 mb-2">{content.title}</h3>
+                  <p className="text-slate-500 leading-relaxed text-xs md:text-sm">{content.desc}</p>
+                </div>
               </motion.div>
             )
           })}
