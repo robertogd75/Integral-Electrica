@@ -158,12 +158,6 @@ export default function Navbar({ onNavigate }) {
                   <ChevronRight size={20} className={activeLink === href ? 'opacity-100' : 'opacity-0'} />
                 </button>
               ))}
-              <div className="pt-4">
-                <a href="tel:+34600000000" className="btn-primary w-full justify-center py-4 rounded-2xl text-lg font-bold shadow-electric">
-                  <Phone className="mr-2" size={20} />
-                  {t.nav.cta}
-                </a>
-              </div>
             </div>
           </motion.div>
         )}

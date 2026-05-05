@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Cookie } from 'lucide-react'
 import { useTranslation } from '../LanguageContext'
 
 export default function CookiesBanner() {
@@ -26,26 +27,26 @@ export default function CookiesBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] max-w-xl">
-      <div className="bg-white/80 backdrop-blur-md border border-white/40 shadow-2xl rounded-2xl p-4 md:p-6 flex flex-col md:flex-row items-center gap-4 animate-slideUp">
-        <div className="flex-shrink-0 w-12 h-12 bg-electric-50 rounded-full flex items-center justify-center text-2xl shadow-inner">
-          🍪
-        </div>
-        <div className="flex-1 text-center md:text-left">
-          <p className="text-slate-600 text-sm md:text-base leading-snug">
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] max-w-3xl">
+      <div className="bg-white/80 backdrop-blur-md border border-white/40 shadow-2xl rounded-2xl p-4 flex flex-col md:flex-row md:items-center gap-3 md:gap-4 animate-slideUp">
+        <div className="flex flex-row items-center gap-3 flex-1">
+          <div className="flex-shrink-0 w-10 h-10 bg-electric-50 rounded-full flex items-center justify-center shadow-inner">
+            <Cookie className="w-5 h-5 text-electric-600" />
+          </div>
+          <p className="text-slate-600 text-sm leading-snug">
             {t.cookies.msg}
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row items-center gap-2">
+        <div className="flex flex-row items-center gap-2 w-full md:w-auto">
           <button
             onClick={reject}
-            className="py-2.5 px-5 text-sm font-medium text-slate-500 border border-slate-300 rounded-xl hover:bg-slate-100 transition-colors whitespace-nowrap w-full sm:w-auto"
+            className="flex-1 py-2.5 px-5 text-sm font-medium text-slate-500 border border-slate-300 rounded-xl hover:bg-slate-100 transition-colors text-center"
           >
             {t.cookies.reject}
           </button>
-          <button 
+          <button
             onClick={accept}
-            className="btn-primary py-2.5 px-6 text-sm shadow-electric whitespace-nowrap w-full sm:w-auto"
+            className="flex-1 btn-primary py-2.5 px-6 text-sm shadow-electric text-center"
           >
             {t.cookies.accept}
           </button>

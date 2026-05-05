@@ -40,17 +40,17 @@ export default function Footer({ onNavigate }) {
     <footer className="bg-slate-900 text-slate-300 border-t border-white/5">
 
       {/* MOBILE layout */}
-      <div className="md:hidden px-6 py-10">
+      <div className="md:hidden px-6 py-10 flex flex-col items-center text-center">
         {/* Logo + desc */}
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center justify-center gap-3 mb-4">
           <img src="/logo-integral-electrica.png" alt="Integral Eléctrica Logo" className="h-9 w-auto object-contain" />
         </div>
         <p className="text-slate-400 text-sm leading-relaxed mb-6">{t.footer.desc}</p>
 
         {/* Contact quick links */}
-        <div className="flex flex-col gap-3 mb-6">
-          <a href="tel:+34600000000" className="flex items-center gap-2 text-slate-300 text-sm font-semibold">
-            <Phone size={15} className="text-electric-400" /> +34 600 000 000
+        <div className="flex flex-col items-center gap-3 mb-6">
+          <a href="tel:+34615285687" className="flex items-center gap-2 text-slate-300 text-sm font-semibold">
+            <Phone size={15} className="text-electric-400" /> +34 615 28 56 87
           </a>
           <a href="mailto:info@integralelectrica.com" className="flex items-center gap-2 text-slate-300 text-sm font-semibold">
             <Mail size={15} className="text-electric-400" /> info@integralelectrica.com
@@ -61,7 +61,7 @@ export default function Footer({ onNavigate }) {
         </div>
 
         {/* Legal links */}
-        <div className="flex flex-wrap gap-x-4 gap-y-2 mb-6 border-t border-white/5 pt-6">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-6 border-t border-white/5 pt-6 w-full">
           {t.footer.legalList.map(item => (
             <a key={item.label} href={item.href} onClick={(e) => handleLegalClick(e, item.href)}
               className="text-slate-500 hover:text-white text-xs transition-colors">
@@ -71,6 +71,7 @@ export default function Footer({ onNavigate }) {
         </div>
 
         <p className="text-slate-600 text-xs">© {year} Integral Eléctrica Marbella. {t.footer.rights}</p>
+        <p className="text-slate-600 text-xs mt-2">{t.footer.powered} <a href="https://rgardel.es" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-electric-400 transition-colors">Roberto García Delgado</a></p>
       </div>
 
       {/* DESKTOP layout */}
@@ -83,7 +84,7 @@ export default function Footer({ onNavigate }) {
             <p className="text-slate-400 text-sm leading-relaxed mb-6">{t.footer.desc}</p>
             <div className="flex gap-3">
               {[
-                { label: 'WhatsApp', href: 'https://wa.me/34600000000', icon: <WhatsAppIcon /> },
+                { label: 'WhatsApp', href: 'https://wa.me/34615285687', icon: <WhatsAppIcon /> },
                 { label: 'Instagram', href: '#', icon: <Camera className="w-4 h-4" /> },
               ].map(({ label, href, icon }) => (
                 <a key={label} href={href} aria-label={label}
@@ -124,8 +125,8 @@ export default function Footer({ onNavigate }) {
           <div>
             <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-5">{t.footer.quick}</h4>
             <div className="space-y-4">
-              <a href="tel:+34600000000" className="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors">
-                <Phone size={15} className="text-electric-400" /> +34 600 000 000
+              <a href="tel:+34615285687" className="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors">
+                <Phone size={15} className="text-electric-400" /> +34 615 28 56 87
               </a>
               <a href="mailto:info@integralelectrica.com" className="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors">
                 <Mail size={15} className="text-electric-400" /> info@integralelectrica.com
@@ -139,7 +140,7 @@ export default function Footer({ onNavigate }) {
 
         <div className="border-t border-white/5 pt-8 flex items-center justify-between">
           <p className="text-slate-500 text-xs">© {year} INTEGRAL ELÉCTRICA MARBELLA. {t.footer.rights}</p>
-          <p className="text-slate-600 text-xs">Powered by <span className="text-white font-bold">PROFESSIONAL TECH</span></p>
+          <p className="text-slate-600 text-xs">{t.footer.powered} <a href="https://rgardel.es" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-electric-400 transition-colors">Roberto García Delgado</a></p>
         </div>
       </div>
 

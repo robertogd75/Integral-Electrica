@@ -77,7 +77,7 @@ export default function Contact() {
   }
 
   const infoItems = [
-    { icon: Phone, label: t.contact.info.phone, value: '+34 600 000 000', href: 'tel:+34600000000', color: 'bg-blue-50 text-blue-600' },
+    { icon: Phone, label: t.contact.info.phone, value: '+34 615 28 56 87', href: 'tel:+34615285687', color: 'bg-blue-50 text-blue-600' },
     { icon: Mail, label: t.contact.info.email, value: 'info@integralelectrica.com', href: 'mailto:info@integralelectrica.com', color: 'bg-purple-50 text-purple-600' },
     { icon: MapPin, label: t.contact.info.location, value: 'Marbella, Málaga', href: null, color: 'bg-red-50 text-red-600' },
     { icon: Clock, label: t.contact.info.horario, value: t.contact.info.horarioVal, href: null, color: 'bg-emerald-50 text-emerald-600' },

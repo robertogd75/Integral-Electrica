@@ -16,7 +16,8 @@ const translations = {
       sub: 'Electricistas certificados en Marbella. Instalaciones, boletines y mucho más.',
       subHighlight: ' Rapidez, seguridad y garantía.',
       cta1: 'Solicitar presupuesto',
-      cta2: '+34 600 000 000',
+      cta2: 'Escribir por WhatsApp',
+      cta3: 'Llamar ahora',
       trust: [
         { icon: '🏅', label: 'Instaladores Certificados' },
         { icon: '📋', label: 'Boletines Oficiales' },
@@ -137,6 +138,7 @@ const translations = {
       ],
       quick: 'Contacto Rápido',
       rights: 'Todos los derechos reservados.',
+      powered: 'Desarrollado por',
     },
     cookies: {
       msg: 'Utilizamos cookies técnicas para el funcionamiento de la web. Puedes aceptar o rechazar las cookies no esenciales.',
@@ -160,7 +162,8 @@ const translations = {
       sub: 'Certified electricians in Marbella. Installations, certificates and much more.',
       subHighlight: ' Speed, safety and guarantee.',
       cta1: 'Request a quote',
-      cta2: '+34 600 000 000',
+      cta2: 'WhatsApp us',
+      cta3: 'Call now',
       trust: [
         { icon: '🏅', label: 'Certified Installers' },
         { icon: '📋', label: 'Official Certificates' },
@@ -281,6 +284,7 @@ const translations = {
       ],
       quick: 'Quick Contact',
       rights: 'All rights reserved.',
+      powered: 'Developed by',
     },
     cookies: {
       msg: 'We use technical cookies for website functionality. You can accept or reject non-essential cookies.',
