@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Copy deps first for layer cache
 COPY package*.json ./
-RUN npm ci --ignore-scripts
+RUN npm install --ignore-scripts
 
 # Copy source and build
 COPY . .
