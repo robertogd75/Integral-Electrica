@@ -16,7 +16,6 @@ services:
       args:
         # La URL de la API se inyecta en tiempo de BUILD (Vite la incrusta)
         VITE_API_URL: ${VITE_API_URL:-http://localhost:3082}
-    image: integral-electrica-frontend:latest
     container_name: integral-frontend
     restart: unless-stopped
     ports:
@@ -33,7 +32,6 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: integral-electrica-backend:latest
     container_name: integral-backend
     restart: unless-stopped
     ports:
