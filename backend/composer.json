@@ -1,0 +1,11 @@
+{
+  "name": "integral-electrica-backend",
+  "description": "Backend de correo para Integral Eléctrica",
+  "require": {
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}

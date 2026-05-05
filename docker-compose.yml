@@ -1,0 +1,62 @@
+version: "3.9"
+
+# ─── Integral Eléctrica — docker-compose.yml ─────────────────────────────────
+# Despliegue con Portainer / Docker Compose
+# Web:     http://TU_SERVER:8081
+# Backend: http://TU_SERVER:8082
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── Frontend ─────────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # La URL de la API se inyecta en tiempo de BUILD (Vite la incrusta)
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8082}
+    image: integral-electrica-frontend:latest
+    container_name: integral-frontend
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    networks:
+      - integral-net
+    depends_on:
+      - backend
+    labels:
+      - "com.docker.compose.service=frontend"
+
+  # ── Backend PHP ───────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: integral-electrica-backend:latest
+    container_name: integral-backend
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    networks:
+      - integral-net
+    environment:
+      # ── SMTP ────────────────────────────────────────────────────────────
+      MAIL_HOST:         ${MAIL_HOST:-smtp.gmail.com}
+      MAIL_PORT:         ${MAIL_PORT:-587}
+      MAIL_USERNAME:     ${MAIL_USERNAME:-CAMBIAR}
+      MAIL_PASSWORD:     ${MAIL_PASSWORD:-CAMBIAR}
+      MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS:-CAMBIAR}
+      MAIL_FROM_NAME:    ${MAIL_FROM_NAME:-Integral Eléctrica Web}
+      # ── Destinatario ────────────────────────────────────────────────────
+      MAIL_TO_ADDRESS:   ${MAIL_TO_ADDRESS:-CAMBIAR}
+      # ── CORS ────────────────────────────────────────────────────────────
+      FRONTEND_URL:      ${FRONTEND_URL:-http://localhost:8081}
+    labels:
+      - "com.docker.compose.service=backend"
+
+# ─── Red interna ─────────────────────────────────────────────────────────────
+networks:
+  integral-net:
+    driver: bridge
+    name: integral-net

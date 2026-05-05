@@ -1,0 +1,54 @@
+version: "3.9"
+
+# ─── Integral Eléctrica — Stack para Portainer ───────────────────────────────
+#
+# Este archivo usa imágenes pre-construidas (sin build context).
+# Pasos:
+#   1. Ejecuta deploy.ps1 en tu máquina local para construir y subir las imágenes.
+#   2. En Portainer → Stacks → Add Stack → Web editor, pega este fichero.
+#   3. En la sección "Environment variables", añade todas las variables de .env.example.
+#   4. Haz clic en Deploy the stack.
+#
+# Puertos:
+#   Frontend → http://IP_SERVIDOR:8081
+#   Backend  → http://IP_SERVIDOR:8082
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── Frontend ─────────────────────────────────────────────────────────────
+  frontend:
+    image: ${REGISTRY}/integral-electrica-frontend:${TAG:-latest}
+    container_name: integral-frontend
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    networks:
+      - integral-net
+    depends_on:
+      - backend
+
+  # ── Backend PHP ───────────────────────────────────────────────────────────
+  backend:
+    image: ${REGISTRY}/integral-electrica-backend:${TAG:-latest}
+    container_name: integral-backend
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    networks:
+      - integral-net
+    environment:
+      MAIL_HOST:         ${MAIL_HOST}
+      MAIL_PORT:         ${MAIL_PORT:-587}
+      MAIL_USERNAME:     ${MAIL_USERNAME}
+      MAIL_PASSWORD:     ${MAIL_PASSWORD}
+      MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+      MAIL_FROM_NAME:    ${MAIL_FROM_NAME:-Integral Eléctrica Web}
+      MAIL_TO_ADDRESS:   ${MAIL_TO_ADDRESS}
+      FRONTEND_URL:      ${FRONTEND_URL}
+
+# ─── Red interna ─────────────────────────────────────────────────────────────
+networks:
+  integral-net:
+    driver: bridge
+    name: integral-net
