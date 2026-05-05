@@ -10,8 +10,8 @@ version: "3.9"
 #   4. Haz clic en Deploy the stack.
 #
 # Puertos:
-#   Frontend → http://IP_SERVIDOR:8081
-#   Backend  → http://IP_SERVIDOR:8082
+#   Frontend → http://IP_SERVIDOR:3081
+#   Backend  → http://IP_SERVIDOR:3082
 # ─────────────────────────────────────────────────────────────────────────────
 
 services:
@@ -22,7 +22,7 @@ services:
     container_name: integral-frontend
     restart: unless-stopped
     ports:
-      - "8081:80"
+      - "3081:80"
     networks:
       - integral-net
     depends_on:
@@ -34,7 +34,7 @@ services:
     container_name: integral-backend
     restart: unless-stopped
     ports:
-      - "8082:80"
+      - "3082:80"
     networks:
       - integral-net
     environment:
